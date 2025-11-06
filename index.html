@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Farmer AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #e6f4ea, #fffbe6);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #2f9e44;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    section {
+      margin: 15px;
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #2f9e44;
+    }
+    button, label {
+      background: #ffb703;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      padding: 10px;
+      color: #555;
+    }
+    img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 10px;
+      display: block;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body>
+  <header>🌾 Smart Farmer AI</header>
+  <section>
+    <h1>AI Crop Disease Diagnosis</h1>
+    <p>Detect crop diseases instantly using AI — upload or capture a photo of your crop.</p>
+    <label>
+      📸 Use Camera
+      <input type="file" accept="image/*" capture="environment" onchange="previewImage(event)" hidden>
+    </label>
+    <label>
+      ☁️ Upload Image
+      <input type="file" accept="image/*" onchange="previewImage(event)" hidden>
+    </label>
+    <div id="preview"></div>
+  </section>
+
+  <section>
+    <h2>🌤 Weather Updates</h2>
+    <p>Get real-time weather updates for your location to plan irrigation and harvesting.</p>
+  </section>
+
+  <section>
+    <h2>💰 Market Prices</h2>
+    <p>Stay updated on daily crop market prices in your region.</p>
+  </section>
+
+  <section>
+    <h2>👨‍🌾 Farmer Community</h2>
+    <p>Join discussions with fellow farmers, share experiences, and ask for advice.</p>
+  </section>
+
+  <footer>© 2025 Smart Farmer AI — Empowering Smart Agriculture 🌿</footer>
+
+  <script>
+    function previewImage(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('preview').innerHTML =
+            '<img src="' + e.target.result + '" alt="Crop Preview">' +
+            '<p style="text-align:center; color:#2f9e44; font-weight:bold;">AI analyzing your crop image...</p>';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+</body>
+</html>
